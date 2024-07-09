@@ -1,0 +1,16 @@
+{
+  "name": "backend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "poetry run python start.py",
+    "celery": "celery -A app.celery_app.celery worker --loglevel=Info",
+    "lint": "poetry run flake8 & poetry run isort . & poetry run black . & poetry run pylint app && poetry run mypy app --check-untyped-defs",
+    "test": "poetry run pytest --cov=app tests/"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "flake8": "^0.0.1",
+    "websockets": "^0.2.0"
+  }
+}
